@@ -9,7 +9,8 @@
 #include "vect.h"
 
 #if (defined(__x86_64__) || defined(__x86_64) || defined(_M_X64)) && \
-     defined(__SHA__) /* -msha */ && !defined(__BLST_PORTABLE__)
+     defined(__SHA__) /* -msha */ && !defined(__BLST_PORTABLE__) && \
+     !defined(__APPLE__)
 # define sha256_block_data_order blst_sha256_block_data_order_shaext
 #elif defined(__aarch64__) && \
       defined(__ARM_FEATURE_CRYPTO) && !defined(__BLST_PORTABLE__)
