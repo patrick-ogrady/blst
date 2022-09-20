@@ -55,23 +55,14 @@
 #  include "coff/ct_is_square_mod_384-x86_64.s"
 # elif defined(__APPLE__)
 #  include "mach-o/sha256-x86_64.s"
-#  if defined(__ADX__) && !defined(__BLST_PORTABLE__)
-#   include "mach-o/ctx_inverse_mod_384-x86_64.s"
-#  else
-#   include "mach-o/ctq_inverse_mod_384-x86_64.s"
-#  endif
+#  include "mach-o/ctq_inverse_mod_384-x86_64.s"
 #  include "mach-o/add_mod_384-x86_64.s"
 #  include "mach-o/add_mod_384x384-x86_64.s"
 #  define __add_mod_384     __add_mont_384
 #  define __sub_mod_384     __sub_mont_384
 #  define __sub_mod_384x384 __sub_mont_384x384
-#  if defined(__ADX__) && !defined(__BLST_PORTABLE__)
-#   include "mach-o/mulx_mont_384-x86_64.s"
-#   include "mach-o/mulx_mont_256-x86_64.s"
-#  else
-#   include "mach-o/mulq_mont_384-x86_64.s"
-#   include "mach-o/mulq_mont_256-x86_64.s"
-#  endif
+#  include "mach-o/mulq_mont_384-x86_64.s"
+#  include "mach-o/mulq_mont_256-x86_64.s"
 #  include "mach-o/add_mod_256-x86_64.s"
 #  include "mach-o/ct_inverse_mod_256-x86_64.s"
 #  include "mach-o/div3w-x86_64.s"
