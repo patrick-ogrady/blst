@@ -70,7 +70,8 @@ typedef limb_t bool_t;
  * Assembly subroutines...
  */
 #if defined(__ADX__) /* e.g. -march=broadwell */ && !defined(__BLST_PORTABLE__)\
-                                                 && !defined(__BLST_NO_ASM__)
+                                                 && !defined(__BLST_NO_ASM__)\
+                                                 && !defined(__APPLE__)
 # define mul_mont_sparse_256 mulx_mont_sparse_256
 # define sqr_mont_sparse_256 sqrx_mont_sparse_256
 # define from_mont_256 fromx_mont_256
@@ -143,7 +144,8 @@ void ct_inverse_mod_256(vec512 ret, const vec256 inp, const vec256 mod,
                                                       const vec256 modx);
 bool_t ct_is_square_mod_384(const vec384 inp, const vec384 mod);
 
-#if defined(__ADX__) /* e.g. -march=broadwell */ && !defined(__BLST_PORTABLE__)
+#if defined(__ADX__) /* e.g. -march=broadwell */ && !defined(__BLST_PORTABLE__)\
+                                                 && !defined(__APPLE__)
 # define mul_mont_384x mulx_mont_384x
 # define sqr_mont_384x sqrx_mont_384x
 # define sqr_mont_382x sqrx_mont_382x
